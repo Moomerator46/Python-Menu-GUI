@@ -12,6 +12,7 @@ root = tk.Tk()
 root.attributes('-fullscreen', True) # Makes the window fullscreen
 bigframe = tk.Frame(root, bg=THEME_BG) # A frame as big as the window as a widget for the Context Menu
 bigframe.pack(fill=tk.BOTH, expand=True)
+bigframe.lower()
 
 contextmenucommands = [
   ('Test one', lambda: print("Test1 clicked")),
@@ -22,4 +23,16 @@ contextmenucommands = [
 
 ContextMenu(root, bigframe, THEME_MENU, THEME_TEXT, THEME_ACCENT, MAIN_FONT, contextmenucommands) # Injects context menu
 
-menus = []
+menus = [
+  ('File', [
+    ('Save', lambda: print('Save Pressed')),
+    ('Load', lambda: print('Load Pressed'))
+  ]),
+  ('Edit', [
+    ('Select All', lambda: print('SelectAll Pressed'))
+  ])
+]
+
+MenuBar(root, THEME_MENU, THEME_ACCENT, THEME_TEXT, MAIN_FONT, menus) # Injects Menu Bar
+
+root.mainloop()
