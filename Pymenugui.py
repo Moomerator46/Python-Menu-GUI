@@ -1,3 +1,5 @@
+import tkinter as tk
+
 class ContextMenu:
     def __init__(self, root, bind_target, menutheme, texttheme, accenttheme, font, commands):
         self.root = root
